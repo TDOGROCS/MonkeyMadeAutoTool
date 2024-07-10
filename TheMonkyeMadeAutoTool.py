@@ -107,7 +107,21 @@ if user_selection == 1:
             print(f"Cannot scan port {port}.")
 elif user_selection == 2:
     #build Webcrawler!
-    print("NOT YET BUILT BRO!!")
+    print(f"""{bcolors.OKBLUE}
+░██████╗██████╗░██╗██████╗░██████╗░███████╗██████╗░███╗░░░███╗░█████╗░███╗░░██╗██╗░░██╗███████╗██╗░░░██╗
+██╔════╝██╔══██╗██║██╔══██╗██╔══██╗██╔════╝██╔══██╗████╗░████║██╔══██╗████╗░██║██║░██╔╝██╔════╝╚██╗░██╔╝
+╚█████╗░██████╔╝██║██║░░██║██║░░██║█████╗░░██████╔╝██╔████╔██║██║░░██║██╔██╗██║█████═╝░█████╗░░░╚████╔╝░
+░╚═══██╗██╔═══╝░██║██║░░██║██║░░██║██╔══╝░░██╔══██╗██║╚██╔╝██║██║░░██║██║╚████║██╔═██╗░██╔══╝░░░░╚██╔╝░░
+██████╔╝██║░░░░░██║██████╔╝██████╔╝███████╗██║░░██║██║░╚═╝░██║╚█████╔╝██║░╚███║██║░╚██╗███████╗░░░██║░░░
+╚═════╝░╚═╝░░░░░╚═╝╚═════╝░╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝╚═╝░░╚═╝╚══════╝░░░╚═╝░░░\n{bcolors.HEADER}  ***Still Just Monkeying Around, Go Bananas!!***\n""")
+    print(f"{bcolors.OKGREEN}Enter the website you want to crawl...")
+    user_web_input = input()
+    try:
+        subprocess.run('dirbuster -H -u {user_web_input}', shell=True)
+        print("Working on it have some patience!")
+        
+    except:
+        print('Failed you are dog shit!')
 
 elif user_selection == 3:
 
@@ -137,3 +151,5 @@ elif user_selection == 3:
     username = input()
     password_list = [12345, 'Password', 'bananas']
     ssh_brute_force(target, username, password_list)
+else:
+    print(f'{bcolors.FAIL}BRO DID YOU NOT READ THE COMING SOON!!!!')
