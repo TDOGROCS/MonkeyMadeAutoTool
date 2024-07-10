@@ -117,11 +117,12 @@ elif user_selection == 2:
     print(f"{bcolors.OKGREEN}Enter the website you want to crawl...")
     user_web_input = input()
     try:
-        subprocess.run('dirbuster -H -u {user_web_input}', shell=True)
-        print("Working on it have some patience!")
+         results = subprocess.run(f'dirbuster -H -u {user_web_input}', ,capture_output=True, shell=True, text=True)
+        print("Working on it, have some patience!")
+        print(results.stdout)
         
-    except:
-        print('Failed you are dog shit!')
+    except Exception as e:
+        print(f'Failed you are dog shit! {e}')
 
 elif user_selection == 3:
 
