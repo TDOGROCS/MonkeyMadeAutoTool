@@ -1,7 +1,7 @@
 #pip install paramiko
-#import subprocess
-#import argparse
-#import os
+import subprocess
+import argparse
+import os
 
 class bcolors:
     HEADER = '\033[95m'
@@ -13,7 +13,7 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-print("""
+print(f"""{bcolors.OKBLUE}
 ████████╗██╗░░██╗███████╗  ███╗░░░███╗░█████╗░███╗░░██╗██╗░░██╗███████╗██╗░░░██╗  ███╗░░░███╗░█████╗░██████╗░███████╗
 ╚══██╔══╝██║░░██║██╔════╝  ████╗░████║██╔══██╗████╗░██║██║░██╔╝██╔════╝╚██╗░██╔╝  ████╗░████║██╔══██╗██╔══██╗██╔════╝
 ░░░██║░░░███████║█████╗░░  ██╔████╔██║██║░░██║██╔██╗██║█████═╝░█████╗░░░╚████╔╝░  ██╔████╔██║███████║██║░░██║█████╗░░
@@ -28,7 +28,7 @@ print("""
 ██║░░██║╚██████╔╝░░░██║░░░╚█████╔╝  ░░░██║░░░╚█████╔╝╚█████╔╝███████╗██╗
 ╚═╝░░╚═╝░╚═════╝░░░░╚═╝░░░░╚════╝░  ░░░╚═╝░░░░╚════╝░░╚════╝░╚══════╝╚═╝\n
                     Made By Tristan (MonkeyMapper)""")
-print(f'{bcolors.HEADER}select your attack!\n1: Port scanner\n2: WebCrawler\n3: BruteSSH\n4: Coming Soon\n5: Coming Soon\n6: Coming soon bro!')
+print(f'{bcolors.OKGREEN}select your attack!\n1: Port scanner\n2: WebCrawler\n3: BruteSSH\n4: Coming Soon\n5: Coming Soon\n6: Coming soon bro!')
 user_selection = int(input())
 if user_selection == 1:
      #!/usr/bin/env python3
@@ -57,7 +57,7 @@ if user_selection == 1:
 
 
     # Basic user interface header
-    print(r"""
+    print(f"""{bcolors.OKBLUE}
     ███╗░░░███╗░█████╗░███╗░░██╗██╗░░██╗███████╗██╗░░░██╗  ███╗░░░███╗░█████╗░██████╗░██████╗░███████╗██████╗░
     ████╗░████║██╔══██╗████╗░██║██║░██╔╝██╔════╝╚██╗░██╔╝  ████╗░████║██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗
     ██╔████╔██║██║░░██║██╔██╗██║█████═╝░█████╗░░░╚████╔╝░  ██╔████╔██║███████║██████╔╝██████╔╝█████╗░░██████╔╝
@@ -99,8 +99,7 @@ if user_selection == 1:
         # print(result)
         # We extract the port status from the returned object
             port_status = (result['scan'][ip_add_entered]['tcp'][port]['state'])
-            if port_status == "open":
-                print(f"Port {port} is {port_status}")
+            print(f"Port {port} is {port_status}")
 
         except:
         # We cannot scan some ports and this ensures the program doesn't crash when we try to scan them.
@@ -113,27 +112,28 @@ elif user_selection == 2:
 ╚█████╗░██████╔╝██║██║░░██║██║░░██║█████╗░░██████╔╝██╔████╔██║██║░░██║██╔██╗██║█████═╝░█████╗░░░╚████╔╝░
 ░╚═══██╗██╔═══╝░██║██║░░██║██║░░██║██╔══╝░░██╔══██╗██║╚██╔╝██║██║░░██║██║╚████║██╔═██╗░██╔══╝░░░░╚██╔╝░░
 ██████╔╝██║░░░░░██║██████╔╝██████╔╝███████╗██║░░██║██║░╚═╝░██║╚█████╔╝██║░╚███║██║░╚██╗███████╗░░░██║░░░
-╚═════╝░╚═╝░░░░░╚═╝╚═════╝░╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝╚═╝░░╚═╝╚══════╝░░░╚═╝░░░\n{bcolors.HEADER}  ***Still Just Monkeying Around, Go Bananas!!***\n""")
+╚═════╝░╚═╝░░░░░╚═╝╚═════╝░╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝╚═╝░░╚═╝╚══════╝░░░╚═╝░░░\n{bcolors.OKBLUE}  ***Still Just Monkeying Around, Go Bananas!!***\n""")
     print(f"{bcolors.OKGREEN}Enter the website you want to crawl...")
     user_web_input = input()
     try:
-         results = subprocess.run(f'dirbuster -H -u {user_web_input}', ,capture_output=True, shell=True, text=True)
+        results = subprocess.run(f'dirbuster -H -u {user_web_input}', ,capture_output=True, shell=True, text=True)
         print("Working on it, have some patience!")
         print(results.stdout)
         
     except Exception as e:
         print(f'Failed you are dog shit! {e}')
+    
 
 elif user_selection == 3:
 
     import paramiko
-    print("""
+    print(f"""
     ██████╗░░█████╗░██████╗░░█████╗░███╗░░░███╗░█████╗░███╗░░██╗██╗░░██╗███████╗██╗░░░██╗
     ██╔══██╗██╔══██╗██╔══██╗██╔══██╗████╗░████║██╔══██╗████╗░██║██║░██╔╝██╔════╝╚██╗░██╔╝
     ██████╔╝███████║██████╔╝███████║██╔████╔██║██║░░██║██╔██╗██║█████═╝░█████╗░░░╚████╔╝░
     ██╔═══╝░██╔══██║██╔══██╗██╔══██║██║╚██╔╝██║██║░░██║██║╚████║██╔═██╗░██╔══╝░░░░╚██╔╝░░
     ██║░░░░░██║░░██║██║░░██║██║░░██║██║░╚═╝░██║╚█████╔╝██║░╚███║██║░╚██╗███████╗░░░██║░░░
-    ╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝╚═╝░░╚═╝╚══════╝░░░╚═╝░░░\nWere Just Monkeying Around!!\n""")
+    ╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝╚═╝░░╚═╝╚══════╝░░░╚═╝░░░\n{bcolors.FAIL}***Were Just Monkeying Around!!***\n""")
     print("Please enter your target IP...")
     print("please enter your target Username...")
     print("Please enter your password list (Example: password_medium.txt)...")
@@ -150,7 +150,7 @@ elif user_selection == 3:
 
     target = input()
     username = input()
-    password_list = [12345, 'Password', 'bananas']
+    password_list = [12345, Password, bananas]
     ssh_brute_force(target, username, password_list)
 else:
     print(f'{bcolors.FAIL}BRO DID YOU NOT READ THE COMING SOON!!!!')
