@@ -135,5 +135,5 @@ elif user_selection == 3:
 
     target = input()
     username = input()
-    password_list = 
+    password_list = [12345, 'Password', 'bananas']
     ssh_brute_force(target, username, password_list)
