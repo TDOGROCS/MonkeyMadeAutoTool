@@ -28,7 +28,7 @@ print("""
 ██║░░██║╚██████╔╝░░░██║░░░╚█████╔╝  ░░░██║░░░╚█████╔╝╚█████╔╝███████╗██╗
 ╚═╝░░╚═╝░╚═════╝░░░░╚═╝░░░░╚════╝░  ░░░╚═╝░░░░╚════╝░░╚════╝░╚══════╝╚═╝\n
                     Made By Tristan (MonkeyMapper)""")
-print('select your attack!\n1: Port scanner\n2: DirBuster 3: BruteSSH')
+print(f'{bcolors.HEADER}select your attack!\n1: Port scanner\n2: WebCrawler\n3: BruteSSH\n4: Coming Soon\n5: Coming Soon\n6: Coming soon bro!')
 user_selection = int(input())
 if user_selection == 1:
      #!/usr/bin/env python3
