@@ -152,5 +152,18 @@ elif user_selection == 3:
     username = input()
     password_list = [12345, Password, bananas]
     ssh_brute_force(target, username, password_list)
+elif user_selection == 4:
+    print(f"{bcolors.OKGREEN}Enter the port you want to scan...")
+    user_port_num = input()
+    
+    try:
+        nmapscan = subprocess.run(f'nmap -sV -sT -Pn -v {user_port_num}',capture_output=True, shell=True, text=True)
+        print("Working on it, have some patience!")
+        print(nmapscan.stdout)
+        
+        
+        
+    except Exception as e:
+        print(f'Failed you are dog shit! {e}')
 else:
     print(f'{bcolors.FAIL}BRO DID YOU NOT READ THE COMING SOON!!!!')
